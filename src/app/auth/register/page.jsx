@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 import toast, { Toaster } from 'react-hot-toast';
+import { authClient } from '@/lib/auth-client';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -35,38 +36,37 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      
-      const payload = {
+      const { data, error } = await authClient.signUp.email({
         name: formData.fullName,
         email: formData.email,
         password: formData.password,
-      };
+        callbackURL: '/auth/login',
+      });
 
-      console.log('Registering user via Better Auth:', payload);
+      if (error) {
+        toast.error(error.message || error.statusText || 'Registration failed. Please try again.');
+        setLoading(false);
+        return;
+      }
 
-      // Show success toast notification
       toast.success('Account created successfully! Redirecting...');
 
-      // Delay briefly so the user sees the toast before navigation
       setTimeout(() => {
         router.push('/auth/login');
       }, 1500);
 
     } catch (error) {
       toast.error(error?.message || 'Something went wrong. Please try again.');
-    } finally {
       setLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex items-center justify-center px-4 py-12">
-      {/* Toast provider container */}
       <Toaster position="top-center" toastOptions={{ style: { background: '#27272a', color: '#fff' } }} />
 
       <div className="w-full max-w-md space-y-8 bg-zinc-900/60 p-8 rounded-2xl border border-zinc-800 backdrop-blur-sm">
         
-        {/* Header & Logo Icon */}
         <div className="text-center space-y-3">
           <Link href="/" className="inline-block">
             <div className="w-8 h-8 rotate-45 border-2 border-zinc-100 flex items-center justify-center overflow-hidden mx-auto mb-2">
@@ -77,10 +77,7 @@ export default function RegisterPage() {
           <p className="text-sm text-zinc-400">Join us to start exploring our collections</p>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
-          
-          {/* Full Name */}
           <div className="space-y-1">
             <label className="text-xs font-medium text-zinc-400">Full Name</label>
             <div className="relative flex items-center bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700/50 focus-within:border-zinc-500 transition-colors">
@@ -97,7 +94,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Email */}
           <div className="space-y-1">
             <label className="text-xs font-medium text-zinc-400">Email Address</label>
             <div className="relative flex items-center bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700/50 focus-within:border-zinc-500 transition-colors">
@@ -114,7 +110,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Password Field with Toggle */}
           <div className="space-y-1">
             <label className="text-xs font-medium text-zinc-400">Password</label>
             <div className="relative flex items-center bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700/50 focus-within:border-zinc-500 transition-colors">
@@ -139,7 +134,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Confirm Password Field with Toggle */}
           <div className="space-y-1">
             <label className="text-xs font-medium text-zinc-400">Confirm Password</label>
             <div className="relative flex items-center bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700/50 focus-within:border-zinc-500 transition-colors">
@@ -164,7 +158,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
@@ -174,7 +167,6 @@ export default function RegisterPage() {
           </button>
         </form>
 
-        {/* Footer Link */}
         <p className="text-center text-xs text-zinc-400">
           Already have an account?{' '}
           <Link href="/auth/login" className="text-zinc-200 font-medium underline underline-offset-4 hover:text-white">
