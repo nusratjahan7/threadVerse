@@ -62,7 +62,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen  text-zinc-100 flex items-center justify-center px-4 py-12">
       <Toaster position="top-center" toastOptions={{ style: { background: '#27272a', color: '#fff' } }} />
 
       <div className="w-full max-w-md space-y-8 bg-zinc-900/60 p-8 rounded-2xl border border-zinc-800 backdrop-blur-sm">
