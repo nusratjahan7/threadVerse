@@ -1,7 +1,10 @@
-import Image from "next/image";
+import CategorySearch from "@/components/homepage/CategorySearch";
+
 
 export default function Home() {
   return (
-    <div className="bg-noise h-screen"></div>
+    <div className="">
+      <CategorySearch />
+    </div>
   );
 }
