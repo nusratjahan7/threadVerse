@@ -62,13 +62,13 @@ export default function Navbar() {
           {/* Right: Login & Register Buttons */}
           <div className="flex items-center space-x-3">
             <Link
-              href="/login"
+              href="/auth/login"
               className="text-xs sm:text-sm font-medium px-4 py-2 text-zinc-300 hover:text-white transition-colors duration-200"
             >
               Login
             </Link>
             <Link
-              href="/register"
+              href="/auth/register"
               className="text-xs sm:text-sm font-medium px-5 py-2 rounded-full bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors duration-200"
             >
               Register
