@@ -131,7 +131,7 @@ export default function NewThisWeek() {
                 {/* Image Container */}
                 <div className="relative aspect-[4/5] bg-zinc-900 border border-zinc-800 overflow-hidden flex items-center justify-center">
                   <Image
-                    src={product.image || '/assets/placeholder.png'}
+                    src={product.image || '/assets/placeholder.jpg'}
                     alt={product.title || 'Product Image'}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
