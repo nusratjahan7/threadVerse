@@ -1,5 +1,6 @@
 import HeroBanner from "@/components/homepage/Banner";
 import CategorySearch from "@/components/homepage/CategorySearch";
+import NewThisWeek from "@/components/homepage/NewThisWeek";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div className="">
       <CategorySearch />
       <HeroBanner />
+      <NewThisWeek />
     </div>
   );
 }

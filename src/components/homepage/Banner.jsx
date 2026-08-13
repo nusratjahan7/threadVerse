@@ -17,8 +17,6 @@ export default function HeroBanner() {
     images: [
       '/assets/banner1.png',
       '/assets/banner2.png',
-      '/assets/banner3.png',
-      '/assets/banner4.png',
     ],
   });
 

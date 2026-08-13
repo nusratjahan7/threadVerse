@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@better-auth/mongo-adapter": "^1.6.27",
+    "@studio-freight/lenis": "^1.0.42",
     "better-auth": "^1.6.27",
+    "lenis": "^1.3.26",
     "mongodb": "^7.5.0",
     "next": "16.3.0",
     "react": "19.2.8",
