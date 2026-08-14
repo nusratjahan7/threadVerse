@@ -18,27 +18,27 @@ const DEFAULT_DATA = {
 export default function FashionApproach() {
   const [data, setData] = useState(DEFAULT_DATA);
 
-//   useEffect(() => {
-//     async function fetchApproach() {
-//       try {
-//         const res = await fetch('/api/fashion-approach');
-//         if (res.ok) {
-//           const result = await res.json();
-//           if (result && result.title) {
-//             setData(result);
-//           }
-//         }
-//       } catch (err) {
-//         console.error('Error fetching approach section:', err);
-//       }
-//     }
-//     fetchApproach();
-//   }, []);
+  //   useEffect(() => {
+  //     async function fetchApproach() {
+  //       try {
+  //         const res = await fetch('/api/fashion-approach');
+  //         if (res.ok) {
+  //           const result = await res.json();
+  //           if (result && result.title) {
+  //             setData(result);
+  //           }
+  //         }
+  //       } catch (err) {
+  //         console.error('Error fetching approach section:', err);
+  //       }
+  //     }
+  //     fetchApproach();
+  //   }, []);
 
   return (
     <section className="w-full  text-zinc-100 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-zinc-900">
       <div className="max-w-7xl mx-auto space-y-12">
-        
+
         {/* Title and Description Header */}
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-zinc-100 leading-tight">
@@ -50,8 +50,8 @@ export default function FashionApproach() {
         </div>
 
         {/* Staggered Responsive Image Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center pt-8">
-          
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 items-center pt-8">
+
           {/* Image 1 */}
           <div className="relative aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden shadow-lg">
             <Image

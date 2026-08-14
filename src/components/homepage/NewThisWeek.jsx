@@ -51,26 +51,26 @@ export default function NewThisWeek() {
   const [loading, setLoading] = useState(false);
   const [startIndex, setStartIndex] = useState(0);
 
-//   useEffect(() => {
-//     async function fetchProducts() {
-//       try {
-//         setLoading(true);
-//         const res = await fetch('/api/products/new-this-week');
-//         if (!res.ok) throw new Error('Failed to fetch data');
-//         const result = await res.json();
+  //   useEffect(() => {
+  //     async function fetchProducts() {
+  //       try {
+  //         setLoading(true);
+  //         const res = await fetch('/api/products/new-this-week');
+  //         if (!res.ok) throw new Error('Failed to fetch data');
+  //         const result = await res.json();
 
-//         if (result.success && Array.isArray(result.data) && result.data.length > 0) {
-//           setProducts(result.data);
-//         }
-//       } catch (err) {
-//         // Falls back silently to DEFAULT_PRODUCTS if API endpoint fails or doesn't exist
-//         setProducts(DEFAULT_PRODUCTS);
-//       } finally {
-//         setLoading(false);
-//       }
-//     }
-//     fetchProducts();
-//   }, []);
+  //         if (result.success && Array.isArray(result.data) && result.data.length > 0) {
+  //           setProducts(result.data);
+  //         }
+  //       } catch (err) {
+  //         // Falls back silently to DEFAULT_PRODUCTS if API endpoint fails or doesn't exist
+  //         setProducts(DEFAULT_PRODUCTS);
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     }
+  //     fetchProducts();
+  //   }, []);
 
   const totalProducts = products.length;
 
@@ -86,8 +86,8 @@ export default function NewThisWeek() {
 
   const visibleProducts = totalProducts > 0
     ? Array.from({ length: Math.min(4, totalProducts) }).map((_, i) =>
-        products[(startIndex + i) % totalProducts]
-      )
+      products[(startIndex + i) % totalProducts]
+    )
     : [];
 
   return (
@@ -124,7 +124,7 @@ export default function NewThisWeek() {
 
         {/* Product Cards Grid */}
         {!loading && visibleProducts.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {visibleProducts.map((product, idx) => (
               <div key={`${product.id || idx}-${idx}`} className="group flex flex-col justify-between space-y-3">
 
