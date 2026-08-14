@@ -161,18 +161,24 @@ export default function HeroBanner() {
             </p>
           </div>
 
-          {/* Product Image Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {[firstImage, secondImage].map((image, idx) => (
-              <div key={image.src} className="flex flex-col space-y-2">
+          {/* Product Image Row - horizontally scrollable */}
+          <div
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 sm:-mx-6 sm:px-6"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {banner.images.map((image, idx) => (
+              <div
+                key={image.src}
+                className="flex flex-col space-y-2 shrink-0 w-[45%] snap-start"
+              >
                 <div className="aspect-[4/5] relative bg-zinc-900 overflow-hidden shadow-sm">
                   <Image
                     src={image.src}
                     alt={`Collection Showcase ${idx + 1}`}
                     fill
-                    sizes="50vw"
+                    sizes="45vw"
                     className="object-cover object-center transition-all duration-500 ease-in-out"
-                    priority
+                    priority={idx < 2}
                   />
                 </div>
                 <div className="text-xs text-zinc-100">
