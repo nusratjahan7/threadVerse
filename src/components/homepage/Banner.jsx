@@ -73,7 +73,7 @@ export default function HeroBanner() {
     <section className="w-full py-12 px-4 sm:px-6 lg:px-8 border-b border-zinc-800 transition-colors">
       <div className="max-w-7xl mx-auto">
 
-        {/* ====== DESKTOP / TABLET LAYOUT ====== */}
+        {/* ====== DESKTOP ====== */}
         <div className="hidden lg:grid grid-cols-12 gap-8 items-center">
 
           {/* Left Column: Text & Dynamic Slide Controls */}
